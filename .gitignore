@@ -98,7 +98,6 @@ dist/
 *.iws
 *.accdb
 *.mdb
-*.db
 *.sqlite
 
 # OS generated
