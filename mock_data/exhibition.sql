@@ -1,0 +1,15 @@
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (1, 'Abstract Expressions', 'error: invalid date "02/30/2023"', '9/20/2023', 'Oracle Park', 7);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (2, 'Modern Perspectives', 'error: invalid date "02/30/2023"', '5/24/2022', 'Wrigley Field', 9);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (3, 'Vibrant Impressions', 'error: invalid date "02/30/2023"', '5/1/2023', 'Dodger Stadium', 17);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (4, 'Contemporary Visions', 'error: invalid date "02/30/2023"', '7/1/2022', 'Yankee Stadium', 15);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (5, 'Artistic Explorations', 'error: invalid date "02/30/2023"', '2/7/2023', 'Wrigley Field', 13);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (6, 'Abstract Expressions', 'error: invalid date "02/30/2023"', '9/2/2022', 'Oracle Park', 20);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (7, 'Modern Perspectives', 'error: invalid date "02/30/2023"', '8/28/2022', 'Wrigley Field', 20);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (8, 'Vibrant Impressions', 'error: invalid date "02/30/2023"', '3/15/2023', 'Fenway Park', 15);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (9, 'Contemporary Visions', 'error: invalid date "02/30/2023"', '8/29/2022', 'Dodger Stadium', 20);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (10, 'Artistic Explorations', 'error: invalid date "02/30/2023"', '3/10/2023', 'Wrigley Field', 18);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (11, 'Abstract Expressions', 'error: invalid date "02/30/2023"', '6/4/2023', 'Wrigley Field', 4);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (12, 'Modern Perspectives', 'error: invalid date "02/30/2023"', '5/17/2022', 'Oracle Park', 15);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (13, 'Vibrant Impressions', 'error: invalid date "02/30/2023"', '2/28/2023', 'Yankee Stadium', 1);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (14, 'Contemporary Visions', 'error: invalid date "02/30/2023"', '10/8/2023', 'Wrigley Field', 8);
+insert into exhibition (exhibitionID, exhibitionName, startDate, endDate, venue, galleryID) values (15, 'Artistic Explorations', 'error: invalid date "02/30/2023"', '7/9/2022', 'Oracle Park', 15);
