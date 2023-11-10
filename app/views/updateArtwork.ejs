@@ -5,37 +5,40 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Update Artwork</h1>
-    <form action="/updateArtwork" method="post">
-        <div>
-            <label>artwork ID: <input type="text" name="artworkID" /></label>
-        </div>
-        <div>
-            <label>artwork title: <input type="text" name="title" /></label>
-        </div>
-        <div>
-            <label>artwork medium: <input type="text" name="medium" /></label>
-        </div>
-        <div>
-            <label>artwork dimensions: <input type="text" name="dimensions" /></label>
-        </div>
-        <div>
-            <label>artwork creationDate: <input type="text" name="creationDate" /></label>
-        </div>
-        <div>
-            <label>artwork price: <input type="text" name="price" /></label>
-        </div>
-        <div>
-            <label>artwork availabilityStatus: <input type="text" name="availabilityStatus" /></label>
-        </div>
-        <div>
-            <label>artwork artistID: <input type="text" name="artistID" /></label>
-        </div>
-        <div>
-            <input type="submit" value="Update" />
-        </div>
-    </form>
+    <div class="container">
+        <h1>Update Artwork</h1>
+        <form action="/artwork/<%= artwork.artworkID %>" method="post">
+            <div>
+                <label>ID: <input type="text" name="artworkID" value="<%= artwork.artworkID %>" readonly /></label>
+            </div>
+            <div>
+                <label>Title: <input type="text" name="title" value="<%= artwork.title %>" /></label>
+            </div>
+            <div>
+                <label>Medium: <input type="text" name="medium" value="<%= artwork.medium %>" /></label>
+            </div>
+            <div>
+                <label>Dimensions: <input type="text" name="dimensions" value="<%= artwork.dimensions %>" /></label>
+            </div>
+            <div>
+                <label>Creation Date: <input type="date" name="creationDate" value="<%= artwork.creationDate %>" /></label>
+            </div>
+            <div>
+                <label>Price: <input type="number" name="price" value="<%= artwork.price %>" /></label>
+            </div>
+            <div>
+                <label>Availability Status: <input type="text" name="availabilityStatus" value="<%= artwork.availabilityStatus %>" /></label>
+            </div>
+            <div>
+                <label>Artist ID: <input type="number" name="artistID" value="<%= artwork.artistID %>" /></label>
+            </div>
+            <div>
+                <input type="submit" value="Update" />
+            </div>
+        </form>
+    </div>
     <footer>
         <div> Made by Yuting</div>
     </footer>
+</body>
 </html>

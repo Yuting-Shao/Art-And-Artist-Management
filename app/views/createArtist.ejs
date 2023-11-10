@@ -5,25 +5,28 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Create Artist</h1>
-    <form action="/createArtist" method="post">
-        <div>
-            <label>artist name: <input type="text" name="name" /></label>
-        </div>
-        <div>
-            <label>artist biography: <input type="text" name="biography" /></label>
-        </div>
-        <div>
-            <label>artist style: <input type="text" name="style" /></label>
-        </div>
-        <div>
-            <label>artist totalExhibitions: <input type="text" name="totalExhibitions" /></label>
-        </div>
-        <div>
-            <input type="submit" value="Create" />
-        </div>
-    </form>
+    <div class="container">
+        <h1>Create Artist</h1>
+        <form action="/artist" method="post">
+            <div>
+                <label>Name: <input type="text" name="name" /></label>
+            </div>
+            <div>
+                <label>Biography: <input type="text" name="biography" /></label>
+            </div>
+            <div>
+                <label>Style: <input type="text" name="style" /></label>
+            </div>
+            <div>
+                <label>Total Exhibitions: <input type="number" name="totalExhibitions" /></label>
+            </div>
+            <div>
+                <input type="submit" value="Create" />
+            </div>
+        </form>
+    </div>
     <footer>
         <div> Made by Yuting</div>
     </footer>
+</body>
 </html>

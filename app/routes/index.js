@@ -1,13 +1,20 @@
 let express = require('express');
 let router = express.Router();
 
-const { getArtists, createArtist, updateArtist, deleteArtist, getArtworksByArtist, createArtwork, updateArtwork, deleteArtwork } = require('../db/dbConnector_Sqlite.js');
+const { getArtists, createArtist, updateArtist, deleteArtist, getArtworksByArtist, getALLArtworks, createArtwork, updateArtwork, deleteArtwork } = require('../db/dbConnector_Sqlite.js');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   const artists = await getArtists();
   console.log("route / called - got artists", artists.length);
   res.render('index', { title: 'Art and Artist Management System', artists });
+});
+
+/* GET artworks. */
+router.get('/artworks', async function(req, res, next) {
+  const artworks = await getALLArtworks();
+  console.log("route /artworks called - got artworks", artworks.length);
+  res.render('allArtworks', { artworks });
 });
 
 /* GET artworks for a specific artist. */

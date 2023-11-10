@@ -54,6 +54,18 @@ async function getArtworksByArtist(artistID) {
     return artworkdata;
 }
 
+async function getALLArtworks() {
+    const db = await connect();
+    const artworkdata = await db.all(`SELECT artworkID, title, price, artistID
+    FROM Artwork
+    ORDER BY artworkID DESC
+    LIMIT 20;`);
+
+    console.log("db connector got data", artworkdata.length);
+
+    return artworkdata;
+}
+
 async function createArtwork(data) {
     const db = await connect();
     const { title, medium, dimensions, creationDate, price, availabilityStatus, artistID } = data;
@@ -81,6 +93,7 @@ module.exports = {
     updateArtist,
     deleteArtist,
     getArtworksByArtist,
+    getALLArtworks,
     createArtwork,
     updateArtwork,
     deleteArtwork

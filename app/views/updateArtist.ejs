@@ -5,28 +5,31 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 <body>
-    <h1>Update Artist</h1>
-    <form action="/updateArtist" method="post">
-        <div>
-            <label>artist ID: <input type="text" name="artistID" /></label>
-        </div>
-        <div>
-            <label>artist name: <input type="text" name="name" /></label>
-        </div>
-        <div>
-            <label>artist biography: <input type="text" name="biography" /></label>
-        </div>
-        <div>
-            <label>artist style: <input type="text" name="style" /></label>
-        </div>
-        <div>
-            <label>artist totalExhibitions: <input type="text" name="totalExhibitions" /></label>
-        </div>
-        <div>
-            <input type="submit" value="Update" />
-        </div>
-    </form>
+    <div class="container">
+        <h1>Update Artist</h1>
+        <form action="/artist/<%= artist.artistID %>" method="post">
+            <div>
+                <label>ID: <input type="text" name="artistID" value="<%= artist.artistID %>" readonly /></label>
+            </div>
+            <div>
+                <label>Name: <input type="text" name="name" value="<%= artist.name %>" /></label>
+            </div>
+            <div>
+                <label>Biography: <input type="text" name="biography" value="<%= artist.biography %>" /></label>
+            </div>
+            <div>
+                <label>Style: <input type="text" name="style" value="<%= artist.style %>" /></label>
+            </div>
+            <div>
+                <label>Total Exhibitions: <input type="number" name="totalExhibitions" value="<%= artist.totalExhibitions %>" /></label>
+            </div>
+            <div>
+                <input type="submit" value="Update" />
+            </div>
+        </form>
+    </div>
     <footer>
         <div> Made by Yuting</div>
     </footer>
+</body>
 </html>

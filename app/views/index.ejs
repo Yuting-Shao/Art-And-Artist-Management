@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><%= title %></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="/">Home</a></li>
+                    <li><a href="/artist/new">Create Artist</a></li>
+                    <li><a href="/artwork/new">Create Artwork</a></li>
+                    <li><a href="/artworks">View All Artworks</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-    <h2>Artists</h2>
-    
-    <% artists.forEach(function(artist){ %>
-      <div>
-        <div><label>artist ID: <output><%= artist.artistID %></output></label></div>
-        <div><label>artist name: <output><%= artist.name %></output></label></div>
-        <div><label>artist style: <output><%= artist.style %></output></label></div>
-        <div><button onclick="confirmDelete(<%= artist.artistID %>)">Delete</button></div>
-      </div>
-      <hr>
-    <% }); %>
+    <div class="container">
+        <h2>Artists</h2>
+        
+        <% artists.forEach(function(artist){ %>
+            <div class="artist-card">
+                <h3><%= artist.name %></h3>
+                <p>Style: <%= artist.style %></p>
+                <p>ID: <%= artist.artistID %></p>
+                <a href="/artist/<%= artist.artistID %>/edit" class="btn">Edit</a>
+                <a href="/artist/<%= artist.artistID %>" class="btn">View Artworks</a>
+                <button class="btn" onclick="confirmDelete(<%= artist.artistID %>)">Delete</button>
+            </div>
+        <% }); %>
+    </div>
 
     <footer>
-      <div> Made by Yuting</div>
+        <div> Made by Yuting</div>
     </footer>
-  </body>
-</html>
 
-<script>
-  function confirmDelete(artistID) {
-      const confirmation = confirm('Are you sure you want to delete this artist?');
-      if (confirmation) {
-          // Make a DELETE request
-          fetch(`/artist/${artistID}`, {
-              method: 'DELETE'
-          }).then(() => {
-              window.location.reload();
-          });
+    <script>
+      function confirmDelete(artistID) {
+          const confirmation = confirm('Are you sure you want to delete this artist?');
+          if (confirmation) {
+              // make a DELETE request
+              fetch(`/artist/${artistID}`, {
+                  method: 'DELETE'
+              }).then(() => {
+                  window.location.reload();
+              });
+          }
       }
-  }
-</script>
+    </script>
+</body>
+</html>
