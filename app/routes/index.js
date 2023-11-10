@@ -26,7 +26,7 @@ router.get('/artist/:artistID', async function(req, res, next) {
 });
 
 /* Render a form to create a new artist. */
-router.get('/artist/new', async function(req, res, next) {
+router.get('/artistCreate/new', async function(req, res, next) {
   res.render('createArtist', { title: 'Create Artist' });
 });
 
@@ -54,7 +54,8 @@ router.put('/artist/:artistID', async function(req, res, next) {
 
 /* Handle deletion of an artist. */
 router.delete('/artist/:artistID', async function(req, res, next) {
-  const artist = await deleteArtist(req.body);
+  const artistID = req.params.artistID;
+  const artist = await deleteArtist({ artistID });
   console.log("route /artist/:artistID called - deleted artist", artist);
   res.redirect('/');
 });
@@ -88,7 +89,8 @@ router.put('/artwork/:artworkID', async function(req, res, next) {
 
 /* Handle deletion of an artwork. */
 router.delete('/artwork/:artworkID', async function(req, res, next) {
-  const artwork = await deleteArtwork(req.body);
+  const artworkID = req.params.artworkID;
+  const artwork = await deleteArtwork({ artworkID });
   console.log("route /artwork/:artworkID called - deleted artwork", artwork);
   res.redirect('/');
 });
