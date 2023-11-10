@@ -14,6 +14,7 @@
         <div><label>artist ID: <output><%= artist.artistID %></output></label></div>
         <div><label>artist name: <output><%= artist.name %></output></label></div>
         <div><label>artist style: <output><%= artist.style %></output></label></div>
+        <div><button onclick="confirmDelete(<%= artist.artistID %>)">Delete</button></div>
       </div>
       <hr>
     <% }); %>
@@ -23,3 +24,17 @@
     </footer>
   </body>
 </html>
+
+<script>
+  function confirmDelete(artistID) {
+      const confirmation = confirm('Are you sure you want to delete this artist?');
+      if (confirmation) {
+          // Make a DELETE request
+          fetch(`/artist/${artistID}`, {
+              method: 'DELETE'
+          }).then(() => {
+              window.location.reload();
+          });
+      }
+  }
+</script>
