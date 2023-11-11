@@ -14,8 +14,12 @@
                 <div class="artwork-card">
                     <h3><%= artwork.title %></h3>
                     <p>Price: <%= artwork.price %></p>
-                    <p>ID: <%= artwork.artistID %></p>
+                    <p>ID: <%= artwork.artworkID %></p>
                     <p>Artist ID: <%= artwork.artistID %></p>
+                    <p>Medium: <%= artwork.medium %></p>
+                    <p>Dimensions: <%= artwork.dimensions %></p>
+                    <p>Creation Date: <%= artwork.creationDate %></p>
+                    <p>Availability Status: <%= artwork.availabilityStatus %></p>
                     <a href="/artwork/<%= artwork.artworkID %>/edit" class="btn">Edit</a>
                     <button class="btn" onclick="confirmDelete(<%= artwork.artworkID %>)">Delete</button>
                 </div>

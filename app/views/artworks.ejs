@@ -14,10 +14,12 @@
             <% artworks.forEach(function(artwork){ %>
                 <div class="artwork-card">
                     <h3><%= artwork.title %></h3>
+                    <p>Price: <%= artwork.price %></p>
+                    <p>ID: <%= artwork.artworkID %></p>
+                    <p>Artist ID: <%= artwork.artistID %></p>
                     <p>Medium: <%= artwork.medium %></p>
                     <p>Dimensions: <%= artwork.dimensions %></p>
                     <p>Creation Date: <%= artwork.creationDate %></p>
-                    <p>Price: <%= artwork.price %></p>
                     <p>Availability Status: <%= artwork.availabilityStatus %></p>
                 </div>
             <% }); %>

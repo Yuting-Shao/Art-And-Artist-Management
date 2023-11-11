@@ -49,7 +49,7 @@ async function deleteArtist(data) {
 
 async function getArtworksByArtist(artistID) {
     const db = await connect();
-    const artworkdata = await db.all(`SELECT artworkID, title, price, artistID
+    const artworkdata = await db.all(`SELECT artworkID, title, price, artistID, medium, dimensions, creationDate, availabilityStatus
     FROM Artwork
     WHERE artistID = ?
     ORDER BY artworkID DESC
@@ -62,7 +62,7 @@ async function getArtworksByArtist(artistID) {
 
 async function getALLArtworks() {
     const db = await connect();
-    const artworkdata = await db.all(`SELECT artworkID, title, price, artistID
+    const artworkdata = await db.all(`SELECT artworkID, title, price, artistID, medium, dimensions, creationDate, availabilityStatus
     FROM Artwork
     ORDER BY artworkID DESC
     LIMIT 20;`);
