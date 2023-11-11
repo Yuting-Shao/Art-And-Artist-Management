@@ -29,6 +29,8 @@
                 <h3><%= artist.name %></h3>
                 <p>Style: <%= artist.style %></p>
                 <p>ID: <%= artist.artistID %></p>
+                <p>Biography: <%= artist.biography %></p>
+                <p>Total Exhibition: <%= artist.totalExhibitions %></p>
                 <a href="/artist/<%= artist.artistID %>/edit" class="btn">Edit</a>
                 <a href="/artist/<%= artist.artistID %>" class="btn">View Artworks</a>
                 <button class="btn" onclick="confirmDelete(<%= artist.artistID %>)">Delete</button>

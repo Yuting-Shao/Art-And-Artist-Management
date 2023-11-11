@@ -10,10 +10,10 @@ async function connect() {
 
 async function getArtists() {
     const db = await connect();
-    const artistdata = await db.all(`SELECT artistID, name, style
+    const artistdata = await db.all(`SELECT artistID, name, style, biography, totalExhibitions
     FROM Artist
     ORDER BY artistID DESC
-    LIMIT 20;`);
+    LIMIT 100;`);
 
     console.log("db connector got data", artistdata.length);
 
@@ -43,6 +43,7 @@ async function getArtistById(artistID) {
 async function deleteArtist(data) {
     const db = await connect();
     const { artistID } = data;
+    await db.run(`DELETE FROM Artwork WHERE artistID = ?`, [artistID]);
     await db.run(`DELETE FROM Artist WHERE artistID = ?`, [artistID]);
     return { artistID };
 }
@@ -53,7 +54,7 @@ async function getArtworksByArtist(artistID) {
     FROM Artwork
     WHERE artistID = ?
     ORDER BY artworkID DESC
-    LIMIT 20;`, [artistID]);
+    LIMIT 100;`, [artistID]);
 
     console.log("db connector got data", artworkdata.length);
 
@@ -65,7 +66,7 @@ async function getALLArtworks() {
     const artworkdata = await db.all(`SELECT artworkID, title, price, artistID, medium, dimensions, creationDate, availabilityStatus
     FROM Artwork
     ORDER BY artworkID DESC
-    LIMIT 20;`);
+    LIMIT 100;`);
 
     console.log("db connector got data", artworkdata.length);
 
