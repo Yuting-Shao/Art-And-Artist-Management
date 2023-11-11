@@ -1,7 +1,7 @@
 let express = require('express');
 let router = express.Router();
 
-const { getArtists, createArtist, updateArtist, deleteArtist, getArtworksByArtist, getALLArtworks, createArtwork, updateArtwork, deleteArtwork } = require('../db/dbConnector_Sqlite.js');
+const { getArtists, createArtist, updateArtist, getArtistById, deleteArtist, getArtworksByArtist, getALLArtworks, createArtwork, updateArtwork, getArtworkById, deleteArtwork } = require('../db/dbConnector_Sqlite.js');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
@@ -40,14 +40,16 @@ router.post('/artist', async function(req, res, next) {
 /* Render a form to update an existing artist. */
 router.get('/artist/:artistID/edit', async function(req, res, next) {
   const artistID = parseInt(req.params.artistID);
-  const artist = await getArtists(artistID);
+  const artist = await getArtistById(artistID);
   console.log("route /artist/:artistID/edit called - got artist", artist);
-  res.render('updateArtist', { artist });
+  res.render('updateArtist', { artist: artist });
 });
 
 /* Handle form submission to update an existing artist. */
 router.put('/artist/:artistID', async function(req, res, next) {
-  const artist = await updateArtist(req.body);
+  const artistID = req.params.artistID;
+  const updatedData = { ...req.body, artistID };
+  const artist = await updateArtist(updatedData);
   console.log("route /artist/:artistID/edit called - updated artist", artist);
   res.redirect('/');
 });
@@ -75,16 +77,18 @@ router.post('/artwork', async function(req, res, next) {
 /* Render a form to update an existing artwork. */
 router.get('/artwork/:artworkID/edit', async function(req, res, next) {
   const artworkID = parseInt(req.params.artworkID);
-  const artwork = await getArtworks(artworkID);
+  const artwork = await getArtworkById(artworkID);
   console.log("route /artwork/:artworkID/edit called - got artwork", artwork);
   res.render('updateArtwork', { artwork });
 });
 
 /* Handle form submission to update an existing artwork. */
 router.put('/artwork/:artworkID', async function(req, res, next) {
-  const artwork = await updateArtwork(req.body);
+  const artworkID = req.params.artworkID;
+  const updatedData = { ...req.body, artworkID };
+  const artwork = await updateArtwork(updatedData);
   console.log("route /artwork/:artworkID/edit called - updated artwork", artwork);
-  res.redirect('/');
+  res.redirect('/artworks');
 });
 
 /* Handle deletion of an artwork. */

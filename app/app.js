@@ -1,5 +1,6 @@
 let createError = require('http-errors');
 let express = require('express');
+let methodOverride = require('method-override');
 let path = require('path');
 let cookieParser = require('cookie-parser');
 let logger = require('morgan');
@@ -7,6 +8,8 @@ let logger = require('morgan');
 let indexRouter = require('./routes/index');
 
 let app = express();
+
+app.use(methodOverride('_method'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

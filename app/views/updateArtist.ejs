@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <h1>Update Artist</h1>
-        <form action="/artist/<%= artist.artistID %>" method="post">
+        <form action="/artist/<%= artist.artistID %>?_method=PUT" method="POST">
             <div>
                 <label>ID: <input type="text" name="artistID" value="<%= artist.artistID %>" readonly /></label>
             </div>

@@ -34,6 +34,12 @@ async function updateArtist(data) {
     return { artistID, name, biography, style, totalExhibitions };
 }
 
+async function getArtistById(artistID) {
+    const db = await connect();
+    const artist = await db.get(`SELECT * FROM Artist WHERE artistID = ?`, [artistID]);
+    return artist;
+}
+
 async function deleteArtist(data) {
     const db = await connect();
     const { artistID } = data;
@@ -80,6 +86,12 @@ async function updateArtwork(data) {
     return { artworkID, title, medium, dimensions, creationDate, price, availabilityStatus, artistID };
 }
 
+async function getArtworkById(artworkID) {
+    const db = await connect();
+    const artwork = await db.get(`SELECT * FROM Artwork WHERE artworkID = ?`, [artworkID]);
+    return artwork;
+}
+
 async function deleteArtwork(data) {
     const db = await connect();
     const { artworkID } = data;
@@ -91,10 +103,12 @@ module.exports = {
     getArtists,
     createArtist,
     updateArtist,
+    getArtistById,
     deleteArtist,
     getArtworksByArtist,
     getALLArtworks,
     createArtwork,
     updateArtwork,
+    getArtworkById,
     deleteArtwork
 };
