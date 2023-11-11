@@ -39,3 +39,5 @@ npm start
 ```
 
 on browser: localhost:3000
+
+CRUD of two tables `Artist` and `Artwork` are implemented. The list of artist is in the home page. The list of artwork can be accessed by clicking the `View Artworks` button in the header of home page.
